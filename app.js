@@ -1,3 +1,7 @@
+//Extra Features 
+// 1. Loading spinner
+// 2. 
+
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
@@ -27,6 +31,7 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
+  spinner(true)
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
@@ -118,11 +123,19 @@ searchBtn.addEventListener('click', function () {
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+  spinner(false)
 })
 
-
-
-
+// spinner
+const spinner = (show) => {
+  const spinner = document.getElementById('loading-spinner');
+  if (show == true) {
+    spinner.classList.remove('d-none');
+  }
+  else{
+    spinner.classList.add('d-none');
+  }
+}
 
 // "Enter" button response 
 document.getElementById('search')
@@ -141,4 +154,3 @@ sliderBtn.addEventListener('click', function () {
   }
 })
 
-//Extra Features 
