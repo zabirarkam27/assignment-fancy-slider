@@ -1,5 +1,6 @@
 //Extra Features 
 // 1. Loading spinner
+// 2. Enter button response for "Create slider" button
 
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
@@ -73,7 +74,7 @@ const createSlider = () => {
 
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
-  // hide image aria
+  // hide image area
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
   sliders.forEach(slide => {
@@ -131,12 +132,12 @@ const spinner = (show) => {
   if (show == true) {
     spinner.classList.remove('d-none');
   }
-  else{
+  else {
     spinner.classList.add('d-none');
   }
 }
 
-// "Enter" button response 
+// "Enter" button response for search button
 document.getElementById('search')
   .addEventListener("keypress", function (event) {
     if (event.key === 'Enter') {
@@ -153,3 +154,10 @@ sliderBtn.addEventListener('click', function () {
   }
 })
 
+// "Enter" button response for "Create slider" button
+document.getElementById('duration')
+  .addEventListener("keypress", function (event) {
+    if (event.key === 'Enter') {
+      document.getElementById("create-slider").click()
+    }
+  })
