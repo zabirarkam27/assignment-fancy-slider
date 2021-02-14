@@ -1,6 +1,5 @@
 //Extra Features 
 // 1. Loading spinner
-// 2. 
 
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
